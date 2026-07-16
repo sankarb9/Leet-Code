@@ -11,7 +11,7 @@ class Solution(object):
         while current:
             current=current.next
             count+=1
-        if count==n:
+        if  count==n:
             return head.next
         for i in range(count-n-1):
             temp=temp.next
