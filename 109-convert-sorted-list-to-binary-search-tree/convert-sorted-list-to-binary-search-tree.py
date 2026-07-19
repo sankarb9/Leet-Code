@@ -18,11 +18,9 @@ class Solution(object):
             prev=slow
             slow=slow.next
             fast=fast.next.next
-
         if prev:
             prev.next=None
         return slow
-
     def sortedListToBST(self, head):
         if not head:
             return None
