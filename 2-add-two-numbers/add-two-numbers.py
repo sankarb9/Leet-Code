@@ -5,19 +5,21 @@
 #         self.next = next
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
-        dummy=ListNode(0)
+        dummy=ListNode()
         current=dummy
-        carry=0
-        total=0
-        while l1 or l2 or carry:
-            total=carry
-            if  l1:
-                total+=l1.val
-                l1=l1.next
-            if l2:
-                total+=l2.val
-                l2=l2.next
-            carry=total//10
-            current.next=ListNode(total%10)
+        t1=l1
+        t2=l2
+        sum1,sum2='',''
+        while t1:
+            sum1+=str(t1.val)
+            t1=t1.next
+        while t2:
+            sum2+=str(t2.val)
+            t2=t2.next
+        sum=str(int(sum1[::-1])+int(sum2[::-1]))
+        for i in sum[::-1]:
+            current.next=ListNode(int(i))
             current=current.next
         return dummy.next
+
+
