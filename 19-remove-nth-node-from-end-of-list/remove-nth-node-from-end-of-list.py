@@ -5,15 +5,18 @@
 #         self.next = next
 class Solution(object):
     def removeNthFromEnd(self, head, n):
-        count=0
         temp=head
-        current=head
-        while current:
-            current=current.next
+        count,count1=0,0
+        while temp:
             count+=1
-        if  count==n:
-            return head.next
-        for i in range(count-n-1):
             temp=temp.next
-        temp.next=temp.next.next
+        temp=head
+        while temp:
+            count1+=1
+            if count1==(count-n) and (count-n) !=0:
+                temp.next=temp.next.next
+            elif (count-n)==0:
+                return head.next
+            else:
+                temp=temp.next
         return head
